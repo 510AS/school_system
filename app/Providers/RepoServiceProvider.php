@@ -14,9 +14,14 @@ class RepoServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'App\Repository\TeacherRepositoryInterface',
-            'App\Repository\TeacherRepository');
-    
+            'App\Repository\Teacher\TeacherRepositoryInterface',
+            'App\Repository\Teacher\TeacherRepository',
+            'App\Repository\Student\StudentRepositoryInterface',
+            'App\Repository\Student\StudentRepository');
+        $this->app->bind(
+            'App\Repository\Student\StudentRepositoryInterface',
+            'App\Repository\Student\StudentRepository');
+
     }
 
     /**

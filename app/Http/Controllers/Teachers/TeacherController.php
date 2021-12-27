@@ -7,7 +7,7 @@ use App\Models\Gender;
 use App\Models\Specialization;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-use App\Repository\TeacherRepositoryInterface;
+use App\Repository\Teacher\TeacherRepositoryInterface;
 
 class TeacherController extends Controller
 {
