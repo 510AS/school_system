@@ -86,7 +86,7 @@
                                 <td><input type="checkbox"  value="{{ $My_Class->id }}" class="box1" ></td>
                                 <td>{{ $i }}</td>
                                 <td>{{ $My_Class->Name_Class }}</td>
-                                <td>{{ $My_Class->Grade->Name }}</td>
+                                <td>{{ $My_Class->Grades->Name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $My_Class->id }}"
@@ -145,8 +145,8 @@
                                                         :</label>
                                                     <select class="form-control form-control-lg"
                                                             id="exampleFormControlSelect1" name="Grade_id">
-                                                        <option value="{{ $My_Class->Grade->id }}">
-                                                            {{ $My_Class->Grade->Name }}
+                                                        <option value="{{ $My_Class->Grades->id }}">
+                                                            {{ $My_Class->Grades->Name }}
                                                         </option>
                                                         @foreach ($Grades as $Grade)
                                                             <option value="{{ $Grade->id }}">
@@ -358,12 +358,14 @@
             $("#datatable input[type=checkbox]:checked").each(function() {
                 selected.push(this.value);
             });
+
             if (selected.length > 0) {
                 $('#delete_all').modal('show')
                 $('input[id="delete_all_id"]').val(selected);
             }
         });
     });
+
 </script>
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonalAccessTokensTable extends Migration
+class CreateProcessingFeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('processing_fees', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable');
-            $table->string('name');
-            $table->string('token', 64)->unique();
-            $table->text('abilities')->nullable();
-            $table->timestamp('last_used_at')->nullable();
+            $table->date('date');
+            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->decimal('amount',8,2)->nullable();
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('processing_fees');
     }
 }

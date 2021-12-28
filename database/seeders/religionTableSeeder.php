@@ -1,6 +1,5 @@
 <?php
 namespace Database\Seeders;
-
 use App\Models\Religion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
